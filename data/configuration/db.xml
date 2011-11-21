@@ -1,0 +1,10 @@
+<databases>
+  <database>
+    <driver>MySQL</driver>
+    <host>localhost</host>
+    <port>3306</port>
+    <user>root</user>
+    <password>123123</password>
+    <db>test</db>
+  </database>
+</databases>
