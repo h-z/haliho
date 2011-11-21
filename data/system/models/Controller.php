@@ -4,7 +4,7 @@
  * Date: 2011.11.15.
  */
  
-abstract class Controller {
+abstract class Controller implements IController {
 
   protected $db;
   protected $sn;

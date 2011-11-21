@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="d7dec397-e653-438a-be3c-9539d6125b40" name="Default" comment="" />
-    <list default="true" id="ffeebd3d-3cef-4057-8324-cf96500c30da" name="idea" comment="page" />
+    <list default="true" id="ffeebd3d-3cef-4057-8324-cf96500c30da" name="idea" comment="idea">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/system/IController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/system/Response.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/system/models/Head.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/system/models/Header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/system/models/Controller.php" afterPath="$PROJECT_DIR$/data/system/models/Controller.php" />
+    </list>
     <ignored path="kms.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,37 +32,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Request.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/system/Request.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="3" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/system/models/Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="11" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0">
+            <state line="6" column="48" selection-start="86" selection-end="97" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.php">
+      <file leaf-file-name="Response.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/system/Response.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="21" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+            <state line="14" column="4" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Core.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/Core.php">
+      <file leaf-file-name="Header.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/system/models/Header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0">
+            <state line="22" column="4" selection-start="354" selection-end="354" vertical-scroll-proportion="0.4305136">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Head.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/system/models/Head.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="3" selection-start="83" selection-end="131" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,10 +77,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/system/IController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="18" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/test/page.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="6" selection-start="199" selection-end="199" vertical-scroll-proportion="0.13595167">
+            <state line="6" column="7" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -122,11 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/data/system/Request.php" />
-        <option value="$PROJECT_DIR$/data/system/Core.php" />
-        <option value="$PROJECT_DIR$/data/system/databases/mysql/MySQL.php" />
-        <option value="$PROJECT_DIR$/data/system/databases/IDatabase.php" />
-        <option value="$PROJECT_DIR$/data/configuration/db.xml" />
         <option value="$PROJECT_DIR$/data/system/Factory.php" />
         <option value="$PROJECT_DIR$/data/Core.php" />
         <option value="$PROJECT_DIR$/data/system/databases/postgresql/PostgreSQL.php" />
@@ -138,6 +150,11 @@
         <option value="$PROJECT_DIR$/data/system/controllers/XmlController.php" />
         <option value="$PROJECT_DIR$/data/system/models/XmlController.php" />
         <option value="$PROJECT_DIR$/public/test/page.xml" />
+        <option value="$PROJECT_DIR$/data/system/models/Controller.php" />
+        <option value="$PROJECT_DIR$/data/system/Response.php" />
+        <option value="$PROJECT_DIR$/data/system/IController.php" />
+        <option value="$PROJECT_DIR$/data/system/models/Head.php" />
+        <option value="$PROJECT_DIR$/data/system/models/Header.php" />
       </list>
     </option>
   </component>
@@ -167,7 +184,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -307,10 +324,10 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode.Wrapping and Braces" />
     <property name="recentsLimit" value="5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Wrapping and Braces" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -363,6 +380,24 @@
     <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="d7dec397-e653-438a-be3c-9539d6125b40" name="Default" comment="" />
@@ -383,7 +418,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13728632" sideWeight="0.67013234" order="4" side_tool="true" content_ui="tabs" x="2913" y="311" width="285" height="525" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33386752" sideWeight="0.67013234" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33814102" sideWeight="0.67013234" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986766" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -421,7 +456,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="page" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -437,6 +472,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="controller&#10;" />
     <MESSAGE value="page" />
+    <MESSAGE value="idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -448,21 +484,6 @@
     <find-history />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/system/databases/postgresql/PostgreSQLQuery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="23" selection-start="288" selection-end="288" vertical-scroll-proportion="0.17804155" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/system/IURLBearer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/system/helpers/Util.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/configuration/db.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="186" selection-end="186" vertical-scroll-proportion="0.116504855" />
@@ -483,11 +504,6 @@
         <state line="22" column="3" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/system/models/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="11" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="21" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" />
@@ -496,18 +512,6 @@
     <entry file="file://$PROJECT_DIR$/data/Core.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="0" selection-start="742" selection-end="742" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/system/models/XmlController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="4" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/test/page.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="6" selection-start="199" selection-end="199" vertical-scroll-proportion="0.13595167">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/system/helpers/Factory.php">
@@ -523,6 +527,53 @@
     <entry file="file://$PROJECT_DIR$/data/system/Session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="25" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test/page.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/system/models/XmlController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="4" selection-start="581" selection-end="581" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/system/models/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="48" selection-start="86" selection-end="97" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/system/IController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="18" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/system/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="4" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/system/models/Head.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="3" selection-start="83" selection-end="131" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/system/models/Header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="4" selection-start="354" selection-end="354" vertical-scroll-proportion="0.4305136">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
