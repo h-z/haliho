@@ -15,13 +15,11 @@ class XmlController extends Controller {
   protected $doc;
 
   /**
-   * @param string $xml
+   * @param DOMNode $node
    */
-  public function __construct($xml) {
+  public function __construct(DOMNode $node) {
     parent::__construct();
-    $this->xml = $xml;
-    $this->doc = new DOMDocument();
-    $this->doc->loadXML($this->xml);
+    $this->doc = $node;
     foreach ($this->doc->attributes as $name => $attr) {
       $this->attribs[$name] = $attr->textContent;
     }
@@ -30,5 +28,10 @@ class XmlController extends Controller {
   public function toString() {
     
     return $this->xml;
+  }
+
+
+  function getHeaders() {
+    // TODO: Implement getHeaders() method.
   }
 }

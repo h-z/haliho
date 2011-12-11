@@ -5,21 +5,45 @@
  */
  
 class Header {
-  private $name;
-  private $value;
+  const SCRIPT = 'script';
+  const STYLE = 'style';
+  const META = 'meta';
+  const LINK = 'meta';
   
-  public function __construct($header = "", $value = "") {
-    if ($header != "") {
-      if ($value != "") {
-        $this->name = $header;
-        $this->value = $value;
-      } else {
-        
-      }
-    }
+  private $name;
+  private $type;
+  private $dependsOn;
+  private $body;
+  private $hash;
+  
+  public function __construct($name = "", $type = "", $body = "", $dependencies = array()) {
+    $this->name = $name;
+    $this->type = $type;
+    $this->body = $body;
+    $this->dependsOn = $dependencies;
   }
 
-  private function split($str) {
-    
+  /**
+   * @return string
+   */
+  public function hashCode() {
+    if ($this->hash == null) {
+      $this->hash = md5($this->name . $this->type . $this->body);
+    }
+    return $this->hash;
+  }
+
+  public function getDependencies() {
+    return $this->dependsOn;
+  }
+
+  public function toString() {
+    $this->SCRIPT;
+    switch ($this->type) {
+      case $this->SCRIPT:
+        break;
+
+
+    }
   }
 }

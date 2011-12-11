@@ -12,10 +12,6 @@ interface IController {
    */
   function toString();
 
+  function getHeaders();
 
-  function head();
-
-  function header();
-
-  function body();
 }

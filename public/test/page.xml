@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doc>
-  <kms:controller method="m" folder="1" articles="yes" >
+  <kms:controller class="simple" method="m" folder="1" articles="yes" >
     <title><![CDATA[cím]]></title>
     <text><![CDATA[szöveg]]></text>
   </kms:controller>
