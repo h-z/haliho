@@ -28,6 +28,10 @@ class XmlController extends Controller {
   }
 
 
+  /**
+   * @param Header $header
+   * @return void
+   */
   protected function addHeader(Header $header) {
     if (!isset($this->headers[$header->hashCode()])) {
       $this->headers[$header->hashCode()] = $header;

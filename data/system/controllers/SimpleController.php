@@ -7,7 +7,8 @@
 class SimpleController extends XmlController {
 
   public function simple() {
-    //$this->
+    $my_header = new Header('', Header::SCRIPT, 'alert(1);');
+    $this->addHeader($my_header);
   }
 
 }
