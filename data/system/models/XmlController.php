@@ -6,13 +6,10 @@
  
 class XmlController extends Controller {
 
-  /*
-   call_user_func_array(array($foo, "bar"), array("three", "four"));
-   */
-
   protected $xml;
   protected $attribs;
   protected $doc;
+  protected $headers;
 
   /**
    * @param DOMNode $node
@@ -31,7 +28,13 @@ class XmlController extends Controller {
   }
 
 
-  function getHeaders() {
-    // TODO: Implement getHeaders() method.
+  protected function addHeader(Header $header) {
+    if (!isset($this->headers[$header->hashCode()])) {
+      $this->headers[$header->hashCode()] = $header;
+    }
+  }
+
+  public function getHeaders() {
+    return $this->headers;
   }
 }
