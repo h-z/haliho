@@ -42,4 +42,9 @@ class Factory {
   public static function getSession() {
     return new Session();
   }
+
+  public static function getResponse() {
+    return new Response();
+  }
+
 }

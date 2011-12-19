@@ -5,8 +5,8 @@
  */
  
 class Singleton {
-  private static $instance;
-  private function __construct() {}
+  protected static $instance;
+  protected function __construct() {}
 
   function getInstance() {
     if (!isset(self::$instance )) {
