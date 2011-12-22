@@ -5,3 +5,8 @@
  */
  
 require '../data/Core.php';
+
+$core = new Core();
+
+print $core->page('html');
+

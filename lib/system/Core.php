@@ -9,6 +9,13 @@ session_start();
 
 class Core {
 
+  public function __construct() {
+  }
+
+  public function page($type = '') {
+
+  }
+
   private static function getdirs($dir) {
     if (!is_dir($dir)) {
       return;
