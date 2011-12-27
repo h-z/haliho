@@ -10,3 +10,5 @@ $core = new Core();
 
 print $core->page('html');
 
+
+?>
