@@ -4,6 +4,6 @@
  * Date: 2011.11.11.
  */
  
-class Article {
+class Article extends Model {
 
 }

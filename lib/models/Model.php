@@ -30,11 +30,11 @@ class Model {
 
     }
 
-    public function find($id) {
+    public static function find($id = 0) {
         if (isset(self::$instances[$id])) {
             return self::$instances[$id];
         }
-
+        return null;
     }
 
 
