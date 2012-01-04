@@ -46,9 +46,6 @@ class Core {
         return $paths;
     }
 
-    private static function autoloadpaths() {
-    }
-
     public static function autoloader($className) {
         //$className = strtolower($className);
         if (self::$loadedDirectories == null) {
