@@ -14,7 +14,7 @@ class Model {
     }
 
     protected function store() {
-        self::$instances[$this->id] = $this;
+        self::$instances[$this->id] = &$this;
     }
 
     protected function load() {
