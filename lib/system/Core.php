@@ -95,8 +95,9 @@ class Core {
 
     public static function autoloader($className) {
         //$className = strtolower($className);
+        $startDir = '../..';
         if (self::$loadedDirectories == null) {
-            self::$loadedDirectories == self::createpaths('.', self::getdirs('.'));
+            self::$loadedDirectories == self::createpaths($startDir, self::getdirs('.'));
         }
 
         foreach (self::$loadedDirectories as $dir) {
