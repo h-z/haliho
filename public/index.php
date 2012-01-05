@@ -4,7 +4,7 @@
  * Date: 2011.11.11.
  */
  
-require '../data/Core.php';
+require '../lib/system/Core.php';
 
 $core = new Core();
 
