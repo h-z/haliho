@@ -1,7 +1,7 @@
 <?php
 /**
  * User: hz
- * Date: 2011.11.11.
+ * Date: 2012.01.05.
  */
  
 class SQLite extends Singleton implements IDatabase {
