@@ -8,16 +8,62 @@ session_start();
  */
 
 class Core {
+    
+    private $maxLoop = 10;
+    private static $handles = array();
 
     private static $loadedDirectories;
     public static $configuration;
+
     public function __construct() {
         spl_autoload_register(array('Core', 'autoloader'));
         self::$configuration = new Configuration();
     }
 
     public function page($type = '') {
+      $page = new Page();
+      $i18n = new I18n();
+    }
 
+    public static function registerHandle($nodeName = '', $handleFunction = array()) {
+      self::$handles[$nodeName] = $handleFunction;
+    }
+
+    private function create() {
+      $loop = 0;
+      $xml = $this->xmlContent;
+      if ($loop < $this->maxLoop) {
+        $xml0 = $this->parseXml($xml);
+        //TODO equals
+        if ($xml0 == $xml) {
+          $this->xmlContent = $xml0;
+        return;
+        }
+        $loop++;
+      }
+    }
+
+    /**
+     * @param DOMDocument $xml
+     * @return DOMDocument
+     */
+    private function parseXml(DOMDocument $xml) {
+      if (!empty(self::$handles)) {
+        foreach (self::$handles as $nodeName => $handle) {
+          $handle = array($handle[0], $handle[1]);
+          $tags = $xml->getElementsByTagName($nodeName);
+          if (!empty($tags)) {
+            foreach ($tags as $tag) {
+              /* @var $tag DOMNode */
+              //$tag->parentNode->replaceChild($this->getController($tag), $tag);
+              if (method_exists($handle[0], $handle[1])) {
+                $tag->parentNode->replaceChild(call_user_func($handle, $tag), $tag);
+              }
+            }
+          }
+        }
+      }
+      return $xml;
     }
 
     private static function getdirs($dir) {

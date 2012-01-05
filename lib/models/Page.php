@@ -17,7 +17,8 @@ class Page {
     $this->body = '';
     $this->head = new Head();
     $this->xmlContent = $this->getContent($this->url);
-    $this->create();
+    Core::registerHandle('kms:controller', array($this, 'getController'));
+    //$this->create();
   }
 
   /**
@@ -58,7 +59,7 @@ class Page {
    * @param DOMNode $node
    * @return DOMNode
    */
-  private function getController(DOMNode $node) {
+  public static function getController(DOMNode $node) {
     $name = $this->getAttribute('name', $node);
     $method = $this->getAttribute('method', $node);
     if (class_exists($name, true)) {
