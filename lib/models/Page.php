@@ -4,7 +4,7 @@
  * Date: 2011.11.11.
  */
  
-class Page {
+class Page implements IHandler {
   private $url;
   private $xmlContent;
   private $body;
@@ -17,7 +17,7 @@ class Page {
     $this->body = '';
     $this->head = new Head();
     $this->xmlContent = $this->getContent($this->url);
-    Core::registerHandle('kms:controller', array($this, 'getController'));
+    Core::registerHandle('kms:controller', $this);
     //$this->create();
   }
 
@@ -59,7 +59,7 @@ class Page {
    * @param DOMNode $node
    * @return DOMNode
    */
-  public static function getController(DOMNode $node) {
+  public function handle(DOMNode $node) {
     $name = $this->getAttribute('name', $node);
     $method = $this->getAttribute('method', $node);
     if (class_exists($name, true)) {

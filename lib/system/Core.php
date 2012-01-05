@@ -25,8 +25,8 @@ class Core {
       $i18n = new I18n();
     }
 
-    public static function registerHandle($nodeName = '', $handleFunction = array()) {
-      self::$handles[$nodeName] = $handleFunction;
+    public static function registerHandle($nodeName = '', $handlerObject = array()) {
+      self::$handles[$nodeName] = $handlerObject;
     }
 
     private function create() {
@@ -50,14 +50,13 @@ class Core {
     private function parseXml(DOMDocument $xml) {
       if (!empty(self::$handles)) {
         foreach (self::$handles as $nodeName => $handle) {
-          $handle = array($handle[0], $handle[1]);
+          //$handle = array($handle, 'handle');
           $tags = $xml->getElementsByTagName($nodeName);
           if (!empty($tags)) {
             foreach ($tags as $tag) {
               /* @var $tag DOMNode */
-              //$tag->parentNode->replaceChild($this->getController($tag), $tag);
-              if (method_exists($handle[0], $handle[1])) {
-                $tag->parentNode->replaceChild(call_user_func($handle, $tag), $tag);
+              if ($handle instanceof IHandler) {
+                $tag->parentNode->replaceChild(call_user_func(array($handle, 'handle'), $tag), $tag);
               }
             }
           }

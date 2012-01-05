@@ -17,9 +17,11 @@ class Factory {
     $item = $dbs->item($index);
     $_db = null;
     switch(strtolower($item->getElementsByTagName('driver')->item(0)->nodeValue)) {
+      case 'postgresql':
+        $_db = new PostgreSQL();
       case 'mysql':
       default:
-       $_db = new MySQL();
+        $_db = new MySQL();
     }
     if (!$_db->isConnected()) {
       $configuration = array(
