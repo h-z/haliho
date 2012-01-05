@@ -97,6 +97,7 @@ class Core {
     public static function autoloader($className) {
         //$className = strtolower($className);
         $startDir = "/home/hz/projects/php/kms";
+        $startDir = '..';
         if (self::$loadedDirectories == null) {
             $dirs = self::getdirs($startDir);
             self::$loadedDirectories = self::createpaths($startDir, $dirs);
