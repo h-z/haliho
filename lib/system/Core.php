@@ -10,9 +10,10 @@ session_start();
 class Core {
 
     private static $loadedDirectories;
-
+    public static $configuration;
     public function __construct() {
         spl_autoload_register(array('Core', 'autoloader'));
+        self::$configuration = new Configuration();
     }
 
     public function page($type = '') {
@@ -38,9 +39,10 @@ class Core {
         print_r($dirs);
         $paths = array();
         foreach($dirs as $d => $subs) {
-            $paths[] = $pre.'/'.$d;
+            $current = $pre.'/'.$d;
+            $paths[] = $current;
             if ($subs) {
-                $paths = array_merge($paths, self::createpaths($pre.'/'.$d, $subs));
+                $paths = array_merge($paths, self::createpaths($current, $subs));
             }
         }
         return $paths;
