@@ -6,11 +6,15 @@
  
 class Factory {
 
+  private static $databases = array();
   /**
    * @param int $index
    * @return IDatabase
    */
   public static function getDB($index = 0) {
+    if (isset(self::$databases[$index])) {
+      return self::$databases[$index];
+    }
     $dom = new DOMDocument();
     $dom->load('../configuration/db.xml');
     $dbs = $dom->getElementsByTagName('database');
@@ -30,10 +34,11 @@ class Factory {
         'user' => $item->getElementsByTagName('user')->item(0)->nodeValue,
         'password' => $item->getElementsByTagName('password')->item(0)->nodeValue,
         'db' => $item->getElementsByTagName('db')->item(0)->nodeValue
-      );
+      ); 
       $_db->config($configuration);
       $_db->connect();
     }
+    self::$databases[$index] = $_db;
     return $_db;
   }
 
