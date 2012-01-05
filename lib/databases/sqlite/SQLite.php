@@ -9,10 +9,6 @@ class SQLite extends Singleton implements IDatabase {
   private $lastquery;
   private $connnection;
   private $filename;
-  private $port;
-  private $user;
-  private $password;
-  private $db;
   private $querycount = 0;
   private $bindmarker = '?';
 
