@@ -8,7 +8,7 @@ class I18n implements IHandler {
     //$this->create();
   }
 
-  public static function handle(DOMNode $node) {
+  public function handle(DOMNode $node) {
 
   }
 
