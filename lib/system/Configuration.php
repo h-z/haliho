@@ -5,7 +5,7 @@
     private function __construct() {
       $dom = new DOMDocument();
       $dom->load('../configuration/configuration.xml');
-      $c = $dom->getElementsByTagName('configuration')[0];
+      $c = $dom->getElementsByTagName('configuration')->item(0);
       if ($c->hasChildNodes) {
         foreach ($c->childNodes as $childNode) {
           $this->values[$childNode->nodeName] = $childNode->nodeValue;
