@@ -67,22 +67,23 @@ class Core {
 
     private static function getdirs($dir) {
         if (!is_dir($dir)) {
-            return null;
+          return null;
         }
         $handle = opendir($dir);
         $subdirs = array();
         while (($file = readdir($handle)) !== false) {
-            if (is_dir($file) && !in_array($file, array('.', '..'))) {
-                $subdirs[$file] = self::getdirs($file);
-            }
+          if (!in_array($file, array('.', '..', '.svn', '.idea'))) { 
+           if (is_dir($dir. '/' . $file)) {
+                $subdirs[$file] = self::getdirs($dir . '/' . $file);
+           }
+          }
         }
         closedir($handle);
         return $subdirs;
     }
 
     private static function createpaths($pre, $dirs) {
-        print_r($dirs);
-        $paths = array();
+       $paths = array();
         foreach($dirs as $d => $subs) {
             $current = $pre.'/'.$d;
             $paths[] = $current;
@@ -95,11 +96,12 @@ class Core {
 
     public static function autoloader($className) {
         //$className = strtolower($className);
-        $startDir = '../..';
+        $startDir = "/home/hz/projects/php/kms";
         if (self::$loadedDirectories == null) {
-            self::$loadedDirectories == self::createpaths($startDir, self::getdirs('.'));
+              $dirs = self::getdirs($startDir);
+              self::$loadedDirectories = self::createpaths($startDir, $dirs);
         }
-
+       var_dump(self::$loadedDirectories);
         foreach (self::$loadedDirectories as $dir) {
             $file = $dir.'/'.$className.'.php';
             if ( file_exists($file) ) {
