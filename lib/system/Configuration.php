@@ -5,12 +5,14 @@
     public function __construct() {
       $dom = new DOMDocument();
       $dom->load('../configuration/configuration.xml');
-      $c = $dom->getElementsByTagName('configuration')->item(0);
-      if ($c->hasChildNodes) {
-        foreach ($c->childNodes as $childNode) {
-          $this->values[$childNode->nodeName] = $childNode->nodeValue;
+      if ($dom->documentElement->hasChildNodes()) {
+      foreach ($dom->documentElement->childNodes as $childNode) {
+          if ($childNode->nodeType == XML_ELEMENT_NODE) {
+            $this->values[$childNode->nodeName] = $childNode->nodeValue;
+          }
         }
       }
+      print_r($this->values);
     }
 
     public function get($key) {
