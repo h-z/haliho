@@ -21,7 +21,7 @@ class Core {
     }
 
     public function page($type = '') {
-        $page = new Page();
+        $page = new Page(new URL("a"));
         $i18n = new I18n();
     }
 
@@ -101,7 +101,7 @@ class Core {
             $dirs = self::getdirs($startDir);
             self::$loadedDirectories = self::createpaths($startDir, $dirs);
         }
-        var_dump(self::$loadedDirectories);
+ //       var_dump(self::$loadedDirectories);
         foreach (self::$loadedDirectories as $dir) {
             $file = $dir.'/'.$className.'.php';
             if ( file_exists($file) ) {

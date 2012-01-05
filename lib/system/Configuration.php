@@ -2,7 +2,7 @@
   class Configuration extends Singleton {
     private $values;
 
-    private function __construct() {
+    public function __construct() {
       $dom = new DOMDocument();
       $dom->load('../configuration/configuration.xml');
       $c = $dom->getElementsByTagName('configuration')->item(0);
