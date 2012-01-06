@@ -13,8 +13,10 @@ class Core {
     private static $handles = array();
     private $data = array();
     private static $loadedDirectories;
-    public static $configuration;
     private static $rootpath = '';
+    private static $separator = '/';
+
+    public static $configuration;
 
     public function __construct($opts = array()) {
         spl_autoload_register(array('Core', 'autoloader'));
@@ -88,8 +90,8 @@ class Core {
         $subdirs = array();
         while (($file = readdir($handle)) !== false) {
             if (!in_array($file, array('.', '..', '.svn', '.idea'))) {
-                if (is_dir($dir. '/' . $file)) {
-                    $subdirs[$file] = self::getdirs($dir . '/' . $file);
+                if (is_dir($dir . self::$separator . $file)) {
+                    $subdirs[$file] = self::getdirs($dir . self::$separator . $file);
                 }
             }
         }
@@ -100,7 +102,7 @@ class Core {
     private static function createpaths($pre, $dirs) {
         $paths = array();
         foreach($dirs as $d => $subs) {
-            $current = $pre.'/'.$d;
+            $current = $pre . self::$separator . $d;
             $paths[] = $current;
             if ($subs) {
                 $paths = array_merge($paths, self::createpaths($current, $subs));
@@ -119,7 +121,7 @@ class Core {
             self::$loadedDirectories = self::createpaths($startDir, $dirs);
         }
         foreach (self::$loadedDirectories as $dir) {
-            $file = $dir.'/'.$className.'.php';
+            $file = $dir . self::$separator . $className.'.php';
             if ( file_exists($file) ) {
                 require_once($file);
             }
