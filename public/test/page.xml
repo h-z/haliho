@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"  xmlns:kms="http://hz.muszaki.info/ns/1.0" ?>
 <doc>
   <kms:controller class="simple" method="m" folder="1" articles="yes" >
     <title><![CDATA[cím]]></title>
