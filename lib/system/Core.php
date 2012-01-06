@@ -10,11 +10,13 @@ session_start();
 class Core {
 
     private $maxLoop = 10;
-    private static $handles = array();
     private $data = array();
+    private $xmlContent;
+
     private static $loadedDirectories;
     private static $rootpath = '';
     private static $separator = '/';
+    private static $handles = array();
 
     public static $configuration;
 
@@ -35,7 +37,8 @@ class Core {
     }
     
     private function loadXML($type = '') {
-        
+        $this->xmlContent = new DOMDocument();
+        $this->xmlContent->load(self::$rootpath . 'public/test/page.xml');
     }
 
     private function toString() {
@@ -113,8 +116,6 @@ class Core {
 
     public static function autoloader($className) {
         //$className = strtolower($className);
-        $startDir = "/home/hz/projects/php/kms";
-        $startDir = '..';
         $startDir = self::$rootpath;
         if (self::$loadedDirectories == null) {
             $dirs = self::getdirs($startDir);
