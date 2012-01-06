@@ -11,18 +11,33 @@ class Core {
 
     private $maxLoop = 10;
     private static $handles = array();
-
+    private $data = array();
     private static $loadedDirectories;
     public static $configuration;
+    private static $rootpath = '';
 
-    public function __construct() {
+    public function __construct($opts = array()) {
         spl_autoload_register(array('Core', 'autoloader'));
-        self::$configuration = new Configuration();
+        self::$rootpath = $opts['rootpath'];
+        self::$configuration = new Configuration($opts);
     }
 
     public function page($type = '') {
         $page = new Page(new URL("a"));
-        $i18n = new I18n();
+
+        $this->data['page'] = $page;
+        $this->data['i18n'] = new I18n();
+        $this->loadXML($type);
+    //   $this->create();
+        return $this->toString();
+    }
+    
+    private function loadXML($type = '') {
+        
+    }
+
+    private function toString() {
+
     }
 
     public static function registerHandle($nodeName = '', $handlerObject = array()) {
@@ -98,11 +113,11 @@ class Core {
         //$className = strtolower($className);
         $startDir = "/home/hz/projects/php/kms";
         $startDir = '..';
+        $startDir = self::$rootpath;
         if (self::$loadedDirectories == null) {
             $dirs = self::getdirs($startDir);
             self::$loadedDirectories = self::createpaths($startDir, $dirs);
         }
- //       var_dump(self::$loadedDirectories);
         foreach (self::$loadedDirectories as $dir) {
             $file = $dir.'/'.$className.'.php';
             if ( file_exists($file) ) {

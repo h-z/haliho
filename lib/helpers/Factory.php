@@ -16,9 +16,10 @@ class Factory {
             return self::$databases[$index];
         }
         $_db = null;
-        $dom = new DOMDocument();
+        //$dom = new DOMDocument();
+        $dom = (new Configuration())->getXML();
         $availableConfigs = array('host', 'port', 'user', 'password', 'db', 'filename');
-        $dom->load('../../configuration/db.xml');
+        //$dom->load('../../configuration/db.xml');
         $dbs = $dom->getElementsByTagName('database');
         $item = $dbs->item($index);
         switch(strtolower($item->getElementsByTagName('driver')->item(0)->nodeValue)) {

@@ -6,7 +6,9 @@
  
 require '../lib/system/Core.php';
 
-$core = new Core();
+$core = new Core(array(
+  'rootpath' => '/home/hz/projects/php/kms/')
+);
 
 print $core->page('html');
 

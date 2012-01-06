@@ -1,17 +1,25 @@
 <?php
 class Configuration extends Singleton {
     private $values;
+    private $xml;
 
-    public function __construct() {
-        $dom = new DOMDocument();
-        $dom->load('../configuration/configuration.xml');
-        if ($dom->documentElement->hasChildNodes()) {
-            foreach ($dom->documentElement->childNodes as $childNode) {
-                if ($childNode->nodeType == XML_ELEMENT_NODE) {
+    public function __construct($opts = array()) {
+        if (!empty($opts)) {
+            foreach($opts as $k => $v) {
+                $this->values[$k] = $v;
+            }
+        }
+
+        $this->xml = new DOMDocument();
+        $this->xml->load($this->values['rootpath'] . 'configuration/configuration.xml');
+        if ($this->xml->documentElement->hasChildNodes()) {
+            foreach ($this->xml->documentElement->childNodes as $childNode) {
+                if ($childNode->nodeType == XML_ELEMENT_NODE && $childNode->childNodes->length == 1) {
                     $this->values[$childNode->nodeName] = $childNode->nodeValue;
                 }
             }
         }
+        var_dump($this->values);
     }
 
     public function get($key) {
@@ -26,7 +34,9 @@ class Configuration extends Singleton {
         return $this->get($key);
     }
 
-
+    public function getXML() {
+      return $this->xml;
+    }
 }
 
 
