@@ -42,10 +42,6 @@ class Core {
     }
 
     private function toString() {
-        /*
-        $a = new DOMDocument();
-        $a->saveXML()
-        */
         return $this->xmlContent->saveXML();
     }
 
@@ -72,12 +68,18 @@ class Core {
      * @return DOMDocument
      */
     private function parseXml(DOMDocument $xml) {
+        var_dump("\n");
         if (!empty(self::$handles)) {
             foreach (self::$handles as $nodeName => $handle) {
+                var_dump("..and now: ".$nodeName."\n");
                 //$handle = array($handle, 'handle');
                 $tags = $xml->getElementsByTagName($nodeName);
+                var_dump($tags);
+                var_dump("\n");
                 if (!empty($tags)) {
                     foreach ($tags as $tag) {
+                        var_dump($tag);
+                        var_dump("\n");
                         /* @var $tag DOMNode */
                         if ($handle instanceof IHandler) {
                             $tag->parentNode->replaceChild(call_user_func(array($handle, 'handle'), $tag), $tag);
