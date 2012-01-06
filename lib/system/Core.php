@@ -42,7 +42,11 @@ class Core {
     }
 
     private function toString() {
-
+        /*
+        $a = new DOMDocument();
+        $a->textContent
+        */
+        return $this->xmlContent->textContent;
     }
 
     public static function registerHandle($nodeName = '', $handlerObject = array()) {
