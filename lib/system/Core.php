@@ -44,9 +44,9 @@ class Core {
     private function toString() {
         /*
         $a = new DOMDocument();
-        $a->textContent
+        $a->saveXML()
         */
-        return $this->xmlContent->textContent;
+        return $this->xmlContent->saveXML();
     }
 
     public static function registerHandle($nodeName = '', $handlerObject = array()) {
