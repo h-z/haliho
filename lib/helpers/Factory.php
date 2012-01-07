@@ -51,7 +51,7 @@ class Factory {
     }
 
     public static function getRequest() {
-        return new Request();
+        return Request::getInstance();
     }
 
     public static function getSession() {
