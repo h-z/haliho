@@ -12,6 +12,9 @@ class SimpleController extends XmlController {
   }
 
   public function m(DOMNode $node) {
+      $a = new DOMDocument();
+      $a->loadXML("<foobar><bar/><foo/></foobar>");
 
+      return $a;
   }
 }
