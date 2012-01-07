@@ -4,7 +4,7 @@
  * Date: 2012.01.05.
  */
  
-class SQLite extends Singleton implements IDatabase {
+class SQLite implements IDatabase {
   
   private $lastquery;
   private $connnection;

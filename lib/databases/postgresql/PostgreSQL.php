@@ -4,7 +4,7 @@
  * Date: 2011.11.11.
  */
  
-class PostgreSQL extends Singleton implements IDatabase {
+class PostgreSQL implements IDatabase {
   
   private $lastquery;
   private $connnection;

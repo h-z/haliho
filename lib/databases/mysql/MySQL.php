@@ -4,7 +4,7 @@
  * Date: 2011.11.11.
  */
  
-class MySQL extends Singleton implements IDatabase {
+class MySQL implements IDatabase {
   
   private $lastquery;
   private $connnection;
