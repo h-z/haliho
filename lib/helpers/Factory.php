@@ -55,15 +55,15 @@ class Factory {
     }
 
     public static function getSession() {
-        return new Session();
+        return Session::getInstance();
     }
 
     public static function getResponse() {
-        return new Response();
+        return Response::getInstance();
     }
 
     public static function getConfiguration() {
-        return new Configuration();
+        return Configuration::getInstance();
     }
 
 }

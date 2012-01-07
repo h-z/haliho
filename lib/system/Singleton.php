@@ -8,7 +8,7 @@ class Singleton {
   protected static $instance;
   protected function __construct() {}
 
-  function getInstance() {
+  public static function getInstance() {
     if (!isset(self::$instance )) {
       self::$instance = new static();
       

@@ -4,7 +4,7 @@
  * Date: 2011.11.21.
  */
  
-class Response {
+class Response extends Singleton {
 
   private $head;
   private $body;
