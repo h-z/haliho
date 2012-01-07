@@ -68,18 +68,13 @@ class Core {
      * @return DOMDocument
      */
     private function parseXml(DOMDocument $xml) {
-        var_dump("\n");
         if (!empty(self::$handles)) {
             foreach (self::$handles as $nodeName => $handle) {
-                var_dump("..and now: ".$nodeName);
                 //$handle = array($handle, 'handle');
                 $tags = $xml->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
-                var_dump($tags->length);
-                var_dump("ee");
-                if (!empty($tags)) {
+               if (!empty($tags)) {
                     foreach ($tags as $tag) {
-                        var_dump("e");
-                       /* @var $tag DOMNode */
+                      /* @var $tag DOMNode */
                         if ($handle instanceof IHandler) {
                             $tag->parentNode->replaceChild(call_user_func(array($handle, 'handle'), $tag), $tag);
                         }

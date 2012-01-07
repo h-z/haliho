@@ -29,43 +29,19 @@ class Page implements IHandler {
     return new DOMDocument();
   }
 
-  private function create() {
-    $xml = $this->xmlContent;
-    if ($this->loop < $this->maxLoop) {
-      $xml0 = $this->parseXml($xml);
-      //TODO equals
-      if ($xml0 == $xml) {
-        $this->xmlContent = $xml0;
-        return;
-      }
-      $this->loop++;
-    }
-  }
-
-  /**
-   * @param DOMDocument $xml
-   * @return DOMDocument
-   */
-  private function parseXml(DOMDocument $xml) {
-    $tags = $xml->getElementsByTagName('kms:controller');
-    foreach ($tags as $tag) {
-      /* @var $tag DOMNode */
-      $tag->parentNode->replaceChild($this->getController($tag), $tag);
-    }
-    return $xml;
-  }
-
   /**
    * @param DOMNode $node
    * @return DOMNode
    */
   public function handle(DOMNode $node) {
-    $name = $this->getAttribute('name', $node);
+    $class = $this->getAttribute('class', $node)."Controller";
     $method = $this->getAttribute('method', $node);
-    if (class_exists($name, true)) {
-      if (is_subclass_of($name, 'XmlController')) {
+    var_dump(array($class, $method));
+    if (class_exists($class, true)) {
+      var_dump("r");
+      if (is_subclass_of($class, 'XmlController')) {
         /* @var $controller XmlController */
-        $controller = new $name($node);
+        $controller = new $class($node);
         if (method_exists($controller, $method)) {
           /* @var $result DOMNode */
           $result = $controller->$method();

@@ -10,4 +10,8 @@ class SimpleController extends XmlController {
     $my_header = new Header('', Header::SCRIPT, 'alert(1);');
     $this->addHeader($my_header);
   }
+
+  public function m(DOMNode $node) {
+
+  }
 }
