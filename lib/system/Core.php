@@ -27,7 +27,7 @@ class Core {
     }
 
     public function page($type = '') {
-        $page = new Page(new URL("a"));
+        $page = new Page(new URL('a'));
 
         $this->data['page'] = $page;
         $this->data['i18n'] = new I18n();

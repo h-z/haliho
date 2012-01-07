@@ -10,7 +10,7 @@ class MySQLQuery implements IQuery {
   private $query;
   private $db;
 
-  function __construct(IDatabase $db, $query = "", $values = array()) {
+  function __construct(IDatabase $db, $query = '', $values = array()) {
     $this->db = $db;
     $this->query = $query;
     $this->result = mysql_query($this->query, $db->getConnection());

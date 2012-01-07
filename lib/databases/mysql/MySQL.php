@@ -53,7 +53,7 @@ class MySQL implements IDatabase {
 		return $str;
   }
 
-  function query($query = "", $values = array()) {
+  function query($query = '', $values = array()) {
     $q = new MySQLQuery($this, $query, $values);
     $this->lastquery = $q;
     $this->querycount++;
@@ -87,7 +87,7 @@ class MySQL implements IDatabase {
    * @param array $values
    * @return string
    */
-  private function parseBindings($query = "", $values = array()) {
+  private function parseBindings($query = '', $values = array()) {
     if (strpos($query, $this->bindmarker) === false) {
       return $query;
     }

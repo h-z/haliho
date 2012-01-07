@@ -10,7 +10,7 @@ class SQLiteQuery implements IQuery {
   private $query;
   private $db;
 
-  function __construct(IDatabase $db, $query = "", $values = array()) {
+  function __construct(IDatabase $db, $query = '', $values = array()) {
     $this->db = $db;
     $this->query = $query;
     $this->result = sqlite_query($db->getConnection(), $this->query);

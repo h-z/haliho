@@ -16,7 +16,7 @@ class Header {
   private $body;
   private $hash;
   
-  public function __construct($name = "", $type = "", $body = "", $dependencies = array()) {
+  public function __construct($name = '', $type = '', $body = '', $dependencies = array()) {
     $this->name = $name;
     $this->type = $type;
     $this->body = $body;

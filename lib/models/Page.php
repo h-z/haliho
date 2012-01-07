@@ -29,7 +29,7 @@ class Page implements IHandler {
    * @return DOMNode
    */
   public function handle(DOMNode $node) {
-    $class = $this->getAttribute($node, 'class')."Controller";
+    $class = $this->getAttribute($node, 'class').'Controller';
     $method = $this->getAttribute($node, 'method');
     if (class_exists($class, true)) {
       if (is_subclass_of($class, 'XmlController')) {
@@ -53,7 +53,7 @@ class Page implements IHandler {
    * @param DOMNode $node
    * @return string
    */
-  private function getAttribute(DOMNode $node=null, $name="") {
+  private function getAttribute(DOMNode $node=null, $name='') {
     $attributes = $node->attributes;
     foreach($attributes as $attr) {
       /* @var $attr DOMAttr */

@@ -14,7 +14,7 @@ class URL {
   /**
    * @param string $path
    */
-  public function __construct($path = "") {
+  public function __construct($path = '') {
     
   }
 

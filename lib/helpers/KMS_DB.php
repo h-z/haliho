@@ -42,7 +42,7 @@ class KMS_DB {
 
   function fetch($table, $id) {
     $pre = $this->pre($table);
-    return $this->db->query("SELECT * FROM ".$this->db->esc($table)." WHERE ".$pre."_id=".$this->db->esc($id))->arow();
+    return $this->db->query('SELECT * FROM '.$this->db->esc($table).' WHERE '.$pre.'_id='.$this->db->esc($id))->arow();
   }
 
   function insert($table, $values = array()) {
@@ -57,9 +57,9 @@ class KMS_DB {
 			$v = is_array($v) ? implode(',',$v) : $v;
 			$arr[$k] = $this->db->esc($v);
 		}
-		$keys = implode(",", array_keys($values));
+		$keys = implode(',', array_keys($values));
 		$values = "'".implode("','", $values)."'";
-		$q = "INSERT INTO ".$table." (".$keys.") VALUES (".$values.")";
+		$q = 'INSERT INTO '.$table.' ('.$keys.') VALUES ('.$values.')';
 		$this->db->query($q);
 		$id = $this->db->insertId();
 		$_POST[$pre.'_id'] = $id;
@@ -71,7 +71,7 @@ class KMS_DB {
 		if(!$pre) {
 		 return false;
 		}
-		$q = "UPDATE ".$table." SET ";
+		$q = 'UPDATE '.$table.' SET ';
 		unset($values[$pre.'_id']);
 		$values[$pre.'_usr_id'] = $_SESSION['user']['usr_id'];
 		$values[$pre.'_moddatum'] = date('Y-m-d H:i:s', time());
@@ -80,9 +80,9 @@ class KMS_DB {
 			$q .= $k."='".$this->db->esc($v)."',";
 		}
 		$q = substr($q, 0, -1);
-		$q .= " WHERE ".$pre."_id=".(int)$id." AND ".$pre."_del=0";
+		$q .= ' WHERE '.$pre.'_id='.(int)$id.' AND '.$pre.'_del=0';
 		if($this->log) {
-			$logq = "SELECT * FROM ".$table." WHERE ".$pre."_id=".(int)$id."";
+			$logq = 'SELECT * FROM '.$table.' WHERE '.$pre.'_id='.(int)$id.'';
       $orig = $this->db->query($logq)->arow();
 			$orig = serialize($orig);
 			$origq = str_replace("'", "", $q);
@@ -102,8 +102,8 @@ class KMS_DB {
 		if(!$pre) {
 		 return false;
 		}
-		$q = "UPDATE ".$table." SET ".$pre."_del=".$t.", ".$pre."_usr_id=".$_SESSION['user']['usr_id']." WHERE ".$pre."_id=".(int)$id;
-		//$q = "UPDATE ".$table." SET ".$pre."_del=".$t." WHERE ".$pre."_id=".(int)$id;
+		$q = 'UPDATE '.$table.' SET '.$pre.'_del='.$t.', '.$pre.'_usr_id='.$_SESSION['user']['usr_id'].' WHERE '.$pre.'_id='.(int)$id;
+		//$q = 'UPDATE '.$table.' SET '.$pre.'_del='.$t.' WHERE '.$pre.'_id='.(int)$id;
 		$this->db->query($q);
 		return ($this->db->affectedRows()==1);
   }

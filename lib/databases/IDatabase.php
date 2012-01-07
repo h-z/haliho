@@ -42,7 +42,7 @@ interface IDatabase {
    * @var array $values
    * @return IQuery
    */
-  function query($query = "", $values = array());
+  function query($query = '', $values = array());
 
   /**
    * @abstract

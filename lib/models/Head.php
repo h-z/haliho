@@ -9,7 +9,7 @@ class Head {
   private $id;
   private $headers;
   
-  public function __construct($id = "") {
+  public function __construct($id = '') {
     
   }
 

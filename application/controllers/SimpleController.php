@@ -14,7 +14,7 @@ class SimpleController extends XmlController {
   public function m(DOMNode $node) {
 
       $a = $node->ownerDocument->createDocumentFragment();
-      $a->appendXML("<foobar><bar/><foo/></foobar>");
+      $a->appendXML('<foobar><bar/><foo/></foobar>');
 
       return $a;
   }
