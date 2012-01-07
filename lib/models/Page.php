@@ -6,19 +6,14 @@
  
 class Page implements IHandler {
   private $url;
-  private $xmlContent;
   private $body;
   private $head;
-  private $loop = 0;
-  private $maxLoop = 10;
 
   public function __construct(URL $url) {
     $this->url = $url;
     $this->body = '';
     $this->head = new Head();
-    $this->xmlContent = $this->getContent($this->url);
     Core::registerHandle('controller', $this);
-    //$this->create();
   }
 
   /**
@@ -34,8 +29,8 @@ class Page implements IHandler {
    * @return DOMNode
    */
   public function handle(DOMNode $node) {
-    $class = $this->getAttribute('class', $node)."Controller";
-    $method = $this->getAttribute('method', $node);
+    $class = $this->getAttribute($node, 'class')."Controller";
+    $method = $this->getAttribute($node, 'method');
     if (class_exists($class, true)) {
       if (is_subclass_of($class, 'XmlController')) {
         /* @var $controller XmlController */
@@ -58,7 +53,7 @@ class Page implements IHandler {
    * @param DOMNode $node
    * @return string
    */
-  private function getAttribute($name="", DOMNode $node=null) {
+  private function getAttribute(DOMNode $node=null, $name="") {
     $attributes = $node->attributes;
     foreach($attributes as $attr) {
       /* @var $attr DOMAttr */
