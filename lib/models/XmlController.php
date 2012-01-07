@@ -9,7 +9,7 @@ class XmlController extends Controller {
   protected $xml;
   protected $attribs;
   protected $doc;
-  protected $headers;
+  protected $headers = array();
 
   /**
    * @param DOMNode $node
