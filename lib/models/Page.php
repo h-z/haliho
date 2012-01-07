@@ -17,7 +17,7 @@ class Page implements IHandler {
     $this->body = '';
     $this->head = new Head();
     $this->xmlContent = $this->getContent($this->url);
-    Core::registerHandle('kms:controller', $this);
+    Core::registerHandle('controller', $this);
     //$this->create();
   }
 
@@ -84,7 +84,7 @@ class Page implements IHandler {
    * @param DOMNode $node
    * @return string
    */
-  private function getAttribute(string $name, DOMNode $node) {
+  private function getAttribute($name="", DOMNode $node=null) {
     $attributes = $node->attributes;
     foreach($attributes as $attr) {
       /* @var $attr DOMAttr */

@@ -32,7 +32,7 @@ class Core {
         $this->data['page'] = $page;
         $this->data['i18n'] = new I18n();
         $this->loadXML($type);
-    //   $this->create();
+        $this->create();
         return $this->toString();
     }
     
@@ -71,16 +71,15 @@ class Core {
         var_dump("\n");
         if (!empty(self::$handles)) {
             foreach (self::$handles as $nodeName => $handle) {
-                var_dump("..and now: ".$nodeName."\n");
+                var_dump("..and now: ".$nodeName);
                 //$handle = array($handle, 'handle');
-                $tags = $xml->getElementsByTagName($nodeName);
-                var_dump($tags);
-                var_dump("\n");
+                $tags = $xml->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
+                var_dump($tags->length);
+                var_dump("ee");
                 if (!empty($tags)) {
                     foreach ($tags as $tag) {
-                        var_dump($tag);
-                        var_dump("\n");
-                        /* @var $tag DOMNode */
+                        var_dump("e");
+                       /* @var $tag DOMNode */
                         if ($handle instanceof IHandler) {
                             $tag->parentNode->replaceChild(call_user_func(array($handle, 'handle'), $tag), $tag);
                         }
