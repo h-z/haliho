@@ -9,10 +9,7 @@ class Configuration extends Singleton {
                 self::$values[$k] = $v;
             }
         }
-
         $this->xml = new DOMDocument();
-        var_dump(self::$values['rootpath'] . 'configuration/configuration.xml');
-
         $this->xml->load(self::$values['rootpath'] . 'configuration/configuration.xml');
         if ($this->xml->documentElement->hasChildNodes()) {
             foreach ($this->xml->documentElement->childNodes as $childNode) {
@@ -21,7 +18,6 @@ class Configuration extends Singleton {
                 }
             }
         }
-        var_dump(self::$values);
     }
 
     public function get($key) {

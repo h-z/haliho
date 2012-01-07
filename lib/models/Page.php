@@ -36,9 +36,7 @@ class Page implements IHandler {
   public function handle(DOMNode $node) {
     $class = $this->getAttribute('class', $node)."Controller";
     $method = $this->getAttribute('method', $node);
-    var_dump(array($class, $method));
     if (class_exists($class, true)) {
-      var_dump("r");
       if (is_subclass_of($class, 'XmlController')) {
         /* @var $controller XmlController */
         $controller = new $class($node);
