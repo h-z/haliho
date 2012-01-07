@@ -44,7 +44,7 @@ class Page implements IHandler {
         $controller = new $class($node);
         if (method_exists($controller, $method)) {
           /* @var $result DOMNode */
-          $result = $controller->$method();
+          $result = $controller->$method($node);
           foreach ($controller->getHeaders() as $header) {
             $this->head->add($header);
           }
