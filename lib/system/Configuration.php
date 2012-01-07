@@ -11,6 +11,8 @@ class Configuration extends Singleton {
         }
 
         $this->xml = new DOMDocument();
+        var_dump($this->values['rootpath'] . 'configuration/configuration.xml');
+
         $this->xml->load($this->values['rootpath'] . 'configuration/configuration.xml');
         if ($this->xml->documentElement->hasChildNodes()) {
             foreach ($this->xml->documentElement->childNodes as $childNode) {

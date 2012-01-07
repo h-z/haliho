@@ -17,7 +17,8 @@ class Factory {
         }
         $_db = null;
         //$dom = new DOMDocument();
-        $dom = (new Configuration())->getXML();
+        $config = new Configuration();
+        $dom = $config->getXML();
         $availableConfigs = array('host', 'port', 'user', 'password', 'db', 'filename');
         //$dom->load('../../configuration/db.xml');
         $dbs = $dom->getElementsByTagName('database');
