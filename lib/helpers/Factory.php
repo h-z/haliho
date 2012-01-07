@@ -62,4 +62,8 @@ class Factory {
         return new Response();
     }
 
+    public static function getConfiguration() {
+        return new Configuration();
+    }
+
 }

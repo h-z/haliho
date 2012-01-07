@@ -1,32 +1,32 @@
 <?php
 class Configuration extends Singleton {
-    private $values;
+    private static $values;
     private $xml;
 
     public function __construct($opts = array()) {
         if (!empty($opts)) {
             foreach($opts as $k => $v) {
-                $this->values[$k] = $v;
+                self::$values[$k] = $v;
             }
         }
 
         $this->xml = new DOMDocument();
-        var_dump($this->values['rootpath'] . 'configuration/configuration.xml');
+        var_dump(self::$values['rootpath'] . 'configuration/configuration.xml');
 
-        $this->xml->load($this->values['rootpath'] . 'configuration/configuration.xml');
+        $this->xml->load(self::$values['rootpath'] . 'configuration/configuration.xml');
         if ($this->xml->documentElement->hasChildNodes()) {
             foreach ($this->xml->documentElement->childNodes as $childNode) {
                 if ($childNode->nodeType == XML_ELEMENT_NODE && $childNode->childNodes->length == 1) {
-                    $this->values[$childNode->nodeName] = $childNode->nodeValue;
+                    self::$values[$childNode->nodeName] = $childNode->nodeValue;
                 }
             }
         }
-        var_dump($this->values);
+        var_dump(self::$values);
     }
 
     public function get($key) {
-        if (isset($this->values[$key])) {
-            return $this->values[$key];
+        if (isset(self::$values[$key])) {
+            return self::$values[$key];
         } else {
             return null;
         }
