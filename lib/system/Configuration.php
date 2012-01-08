@@ -32,7 +32,7 @@ class Configuration extends Singleton {
 
     public function get($key) {
         if (Util::endsWith($key, 'dir')) {
-            return self::$values[$key] . '/' . self::$dirs[$key];
+            return self::$values['rootpath'] . '/' . self::$dirs[$key];
         } elseif (isset(self::$values[$key])) {
             return self::$values[$key];
         } else {
