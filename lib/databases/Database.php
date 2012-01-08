@@ -27,6 +27,7 @@ abstract class Database implements IDatabase {
         }
         $this->config($configuration);
     }
+
     public function config($options = array()) {
       if (is_array($options))	{
   			foreach ($options as $key => $val) {

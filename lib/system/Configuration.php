@@ -26,7 +26,6 @@ class Configuration extends Singleton {
                     }
                 }
             }
-
         }
     }
 
