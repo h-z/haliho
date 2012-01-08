@@ -19,7 +19,7 @@ class Configuration extends Singleton {
                 }
             }
             $dirnode = $this->xml->getElementsByTagName('dirs');
-            if ($dirnode[0] && $dirnode[0]->hasChildNodes()) {
+            if ($dirnode->item(0) && $dirnode->item(0)->hasChildNodes()) {
                 foreach ($dirnode[0]->childNodes as $dirChild) {
                     if ($dirChild->nodeType == XML_ELEMENT_NODE && $dirChild->childNodes->length == 1) {
                         self::$dirs[$dirChild->nodeName] = $dirChild->nodeValue;
