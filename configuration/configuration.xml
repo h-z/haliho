@@ -2,9 +2,11 @@
 <configuration>
     <domain>localhost</domain>
     <loglevel>INFO</loglevel>
-    <cachedir>var/cache</cachedir>
-    <tmpdir>var/tmp</tmpdir>
-    <logdir>var/log</logdir>
+    <dirs>
+        <cache>var/cache</cache>
+        <tmp>var/tmp</tmp>
+        <log>var/log</log>
+    </dirs>
     <databases>
         <database>
             <driver>SQLite</driver>

@@ -1,6 +1,7 @@
 <?php
 class Configuration extends Singleton {
     private static $values;
+    private static $dirs;
     private $xml;
 
     public function __construct($opts = array()) {
@@ -17,11 +18,22 @@ class Configuration extends Singleton {
                     self::$values[$childNode->nodeName] = $childNode->nodeValue;
                 }
             }
+            $dirnode = $this->xml->getElementsByTagName('dirs');
+            if ($dirnode[0] && $dirnode[0]->hasChildNodes()) {
+                foreach ($dirnode[0]->childNodes as $dirChild) {
+                    if ($dirChild->nodeType == XML_ELEMENT_NODE && $dirChild->childNodes->length == 1) {
+                        self::$dirs[$dirChild->nodeName] = $dirChild->nodeValue;
+                    }
+                }
+            }
+
         }
     }
 
     public function get($key) {
-        if (isset(self::$values[$key])) {
+        if (Util::endsWith($key, 'dir')) {
+            return self::$values[$key] . '/' . self::$dirs[$key];
+        } elseif (isset(self::$values[$key])) {
             return self::$values[$key];
         } else {
             return null;
@@ -33,7 +45,7 @@ class Configuration extends Singleton {
     }
 
     public function getXML() {
-      return $this->xml;
+        return $this->xml;
     }
 }
 
