@@ -19,7 +19,7 @@ class Factory {
         //$dom = new DOMDocument();
         $config = new Configuration();
         $dom = $config->getXML();
-        $availableConfigs = array('host', 'port', 'user', 'password', 'db', 'filename');
+        //$availableConfigs = array('host', 'port', 'user', 'password', 'db', 'filename');
         //$dom->load('../../configuration/db.xml');
         $dbs = $dom->getElementsByTagName('database');
         $item = $dbs->item($index);
@@ -37,13 +37,15 @@ class Factory {
         }
         if (!$_db->isConnected()) {
             $configuration = array();
+            /*
             foreach ($availableConfigs as $conf) {
                 $items = $item->getElementsByTagName($conf);
                 if ($items->length > 0) {
                     $configuration[$conf] = $items->item(0)->nodeValue;
                 }
             }
-            $_db->config($configuration);
+            */
+            $_db->configXML($item);
             $_db->connect();
         }
         self::$databases[$index] = $_db;
