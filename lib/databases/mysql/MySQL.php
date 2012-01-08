@@ -5,15 +5,11 @@
  */
 
 class MySQL extends Database {
-
-
     private $host;
     private $port;
     private $user;
     private $password;
     private $db;
-    private $querycount = 0;
-    private $bindmarker = '?';
 
     public function config($options = array()) {
         if (is_array($options))	{

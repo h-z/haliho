@@ -5,15 +5,11 @@
  */
 
 class PostgreSQL extends Database {
-
     private $host;
     private $port;
     private $user;
     private $password;
     private $db;
-    private $querycount = 0;
-    private $bindmarker = '?';
-
 
     public function connect() {
         if ($this->port != '') {
