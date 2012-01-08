@@ -6,33 +6,33 @@
 
 interface IQuery {
 
-  /**
-   * @abstract
-   * @return array
-   */
-  function fetchall();
+    /**
+     * @abstract
+     * @return array
+     */
+    function fetchall();
 
-  /**
-   * @abstract
-   * @return array
-   */
-  function row();
+    /**
+     * @abstract
+     * @return array
+     */
+    function row();
 
-  /**
-   * @abstract
-   * @return array
-   */
-  function arow();
+    /**
+     * @abstract
+     * @return array
+     */
+    function arow();
 
-  /**
-   * @abstract
-   * @return int
-   */
-  function count();
+    /**
+     * @abstract
+     * @return int
+     */
+    function count();
 
-  /**
-   * @abstract
-   * @return void
-   */
-  function free();
+    /**
+     * @abstract
+     * @return void
+     */
+    function free();
 }
