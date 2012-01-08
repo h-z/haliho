@@ -2,7 +2,15 @@
 <configuration>
   <domain>localhost</domain>
   <loglevel>INFO</loglevel>
- <databases>
+  <cachedir>var/cache</cachedir>
+  <tmpdir>var/tmp</tmpdir>
+  <logdir>var/log</logdir>
+  <databases>
+  <database>
+      <driver>SQLite</driver>
+      <filename>db.sqlite</filename>
+    <db>test</db>
+  </database>
   <database>
     <driver>MySQL</driver>
     <host>localhost</host>
