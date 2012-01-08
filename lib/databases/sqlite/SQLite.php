@@ -5,7 +5,6 @@
  */
 
 class SQLite extends Database {
-    private $filename;
 
     public function connect() {
         $this->connnection = @sqlite_open($this->filename, 0666);

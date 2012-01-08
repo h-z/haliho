@@ -5,11 +5,6 @@
  */
 
 class MySQL extends Database {
-    private $host;
-    private $port;
-    private $user;
-    private $password;
-    private $db;
 
     public function connect() {
         if ($this->port != '') {

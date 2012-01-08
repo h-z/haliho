@@ -5,7 +5,12 @@
  */
 
 abstract class Database implements IDatabase {
-
+    protected $host;
+    protected $port;
+    protected $user;
+    protected $password;
+    protected $db;
+    protected $filename;
     protected $connnection;
     protected $lastquery;
     protected $querycount = 0;
