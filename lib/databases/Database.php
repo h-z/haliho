@@ -20,7 +20,7 @@ abstract class Database implements IDatabase {
                 $configuration[$conf] = $items->item(0)->nodeValue;
             }
         }
-        $this->config();
+        $this->config($configuration);
     }
     public function config($options = array()) {
       if (is_array($options))	{
