@@ -11,14 +11,6 @@ class MySQL extends Database {
     private $password;
     private $db;
 
-    public function config($options = array()) {
-        if (is_array($options))	{
-            foreach ($options as $key => $val) {
-                $this->$key = $val;
-            }
-        }
-    }
-
     public function connect() {
         if ($this->port != '') {
             $this->host .= ':'.$this->port;
