@@ -16,7 +16,7 @@ class SimpleController extends XmlController {
         $a = $node->ownerDocument->createDocumentFragment();
         $a->appendXML('<foobar><bar/><foo/></foobar>');
         var_dump($this->db);
-        $r = $this->db->query("select * from atable)")->fetchAll();
+        $r = $this->db->query("select * from atable")->fetchAll();
         var_dump($r);
         return $a;
     }

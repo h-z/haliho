@@ -7,7 +7,7 @@
 class SQLite extends Database {
 
     public function connect() {
-        $this->connnection = @sqlite_open($this->filename, 0666);
+        $this->connnection = @sqlite_open(Configuration::getInstance()->tmpdir . '/' . $this->filename, 0666);
         return $this->connnection;
     }
 
