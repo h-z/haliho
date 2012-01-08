@@ -8,7 +8,7 @@ class SQLiteQuery extends Query {
 
     public function __construct(IDatabase $db, $query = '', $values = array()) {
         parent::__construct($db, $query, $values);
-        $this->result = sqlite_query($db->getConnection(), $this->query);
+        $this->result = sqlite_query($this->query, $db->getConnection());
     }
 
     public function row() {
