@@ -16,7 +16,7 @@ class Factory {
             return self::$databases[$index];
         }
         $_db = null;
-        $config = new Configuration();
+        $config = self::getConfiguration();
         $dom = $config->getXML();
         $dbs = $dom->getElementsByTagName('database');
         $item = $dbs->item($index);
@@ -50,8 +50,8 @@ class Factory {
         return Response::getInstance();
     }
 
-    public static function getConfiguration() {
-        return Configuration::getInstance();
+    public static function getConfiguration($opts = array()) {
+        return Configuration::getInstance($opts);
     }
 
 }

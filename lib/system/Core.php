@@ -23,7 +23,7 @@ class Core {
     public function __construct($opts = array()) {
         spl_autoload_register(array('Core', 'autoloader'));
         self::$rootpath = $opts['rootpath'];
-        self::$configuration = new Configuration($opts);
+        self::$configuration = Factory::getConfiguration($opts);
     }
 
     public function page($type = '') {

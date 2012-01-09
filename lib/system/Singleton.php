@@ -6,11 +6,11 @@
 
 class Singleton {
     protected static $instance;
-    protected function __construct() {}
+    protected function __construct($opts = array()) {}
 
-    public static function getInstance() {
+    public static function getInstance($opts = array()) {
         if (!isset(self::$instance )) {
-            self::$instance = new static();
+            self::$instance = new static($opts);
 
         }
         return self::$instance;
