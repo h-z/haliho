@@ -24,6 +24,7 @@ class Core {
         spl_autoload_register(array('Core', 'autoloader'));
         self::$rootpath = $opts['rootpath'];
         self::$configuration = Factory::getConfiguration($opts);
+        $logmanager = LoggerManager::getInstance();
     }
 
     public function page($type = '') {

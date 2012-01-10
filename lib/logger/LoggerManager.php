@@ -19,10 +19,11 @@ class LoggerManager extends Singleton {
             $class = '';
             foreach ( $loggerNode->attributes as $name => $value ) {
                 if ('class' == $name) {
-                    $class = $value;
+                    $class = $value->nodeValue;
                 }
             }
             if ('' != $class) {
+                var_dump($class);
                 $logger = new $class();
                 $level = '';
                 $levelNode = $loggerNode->getElementsByTagName('level');
@@ -37,10 +38,11 @@ class LoggerManager extends Singleton {
                     $class = '';
                     foreach ( $writerNode->attributes as $name => $value ) {
                         if ('class' == $name) {
-                            $class = $value;
+                            $class = $value->nodeValue;
                         }
                     }
                     if ('' != $class) {
+                        $class .= 'LogWriter';
                         $writer = new $class($writerNode);
                         $logger->register($writer);
                     }

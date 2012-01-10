@@ -6,19 +6,15 @@
 
 class Logger implements ILogger {
 
-    private static $instance;
-
     private $writers = array();
 
-    public static function getLogger() {
-        if (!self::$instance) {
-            self::$instance = new Logger();
-        }
-        return self::$instance;
+    private $level = 0;
+    public function __construct() {
+
     }
-
-    protected function __construct() {
-
+    
+    public function setLevel($i) {
+        $this->level = $i;
     }
 
     public function register(ILogWriter $writer) {
