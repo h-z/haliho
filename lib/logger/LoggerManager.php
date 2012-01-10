@@ -45,6 +45,7 @@ class LoggerManager extends Singleton {
                         $logger->register($writer);
                     }
                 }
+                $this->loggers[] = $logger;
             }
         }
     }
