@@ -14,8 +14,8 @@ class LoggerManager extends Singleton {
         $config = Configuration::getInstance();
         $this->xml = $config->getXML();
         $loggerNodes = $this->xml->getElementsByTagName('logger');
-        for($pos=0; $pos < $loggerNodes->length; $pos++) {
-            $loggerNode = $loggerNodes->item($pos);
+        for($i=0; $i < $loggerNodes->length; $i++) {
+            $loggerNode = $loggerNodes->item($i);
             $class = '';
             foreach ( $loggerNode->attributes as $name => $value ) {
                 if ('class' == $name) {
@@ -32,8 +32,8 @@ class LoggerManager extends Singleton {
                 }
                 $logger->setLevel($level);
                 $writerNodes = $loggerNode->getElementsByTagName('writer');
-                for($pos=0; $pos < $writerNodes->length; $pos++) {
-                    $writerNode = $writerNodes->item($pos);
+                for($j=0; $j < $writerNodes->length; $j++) {
+                    $writerNode = $writerNodes->item($j);
                     $class = '';
                     foreach ( $writerNode->attributes as $name => $value ) {
                         if ('class' == $name) {
