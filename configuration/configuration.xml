@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <domain>localhost</domain>
-    <loglevel>INFO</loglevel>
     <dirs>
         <cache>var/cache</cache>
         <tmp>var/tmp</tmp>
@@ -22,9 +21,8 @@
             <db>kmstest</db>
         </database>
     </databases>
-    <logger>
+    <logger class="Logger">
         <level>INFO</level>
-        <writers>
-            <writer>StdOut</writer>
-        </writers>
+        <writer class="StdOut" />
+    </logger>
 </configuration>

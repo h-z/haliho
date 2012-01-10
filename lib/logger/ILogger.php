@@ -6,7 +6,7 @@
 
 interface ILogger {
 
-    static function getLogger();
+    function setLevel($i);
 
     function register(ILogWriter $writer);
 
