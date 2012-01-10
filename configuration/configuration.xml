@@ -22,4 +22,9 @@
             <db>kmstest</db>
         </database>
     </databases>
+    <logger>
+        <level>INFO</level>
+        <writers>
+            <writer>StdOut</writer>
+        </writers>
 </configuration>
