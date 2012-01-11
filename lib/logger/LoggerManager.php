@@ -8,7 +8,7 @@ class LoggerManager extends Singleton {
     private $xml;
 
     private static $loggers = array();
-
+    public static  $levels = array('ALL', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'OFF' );
     protected function __construct() {
         parent::__construct();
         $config = Configuration::getInstance();

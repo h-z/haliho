@@ -7,12 +7,12 @@
 class Logger implements ILogger {
 
     private $writers = array();
-    private $levels = array('ALL', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'OFF' );
+    private $levels; // = array('ALL', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'OFF');
     private $level = 0;
-    private $defaultLevel = 1;
+    private $defaultLevel = 4;
 
     public function __construct() {
-
+        $this->levels = LoggerManager::$levels;
     }
     
     public function setLevel($i) {
