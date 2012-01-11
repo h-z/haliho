@@ -6,4 +6,8 @@
 
 class StdOutLogWriter implements ILogWriter {
 
+    public function write($msg = '') {
+        var_dump($msg);
+
+    }
 }

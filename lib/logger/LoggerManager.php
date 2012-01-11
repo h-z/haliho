@@ -7,7 +7,7 @@
 class LoggerManager extends Singleton {
     private $xml;
 
-    private $loggers = array();
+    private static $loggers = array();
 
     protected function __construct() {
         parent::__construct();
@@ -23,7 +23,7 @@ class LoggerManager extends Singleton {
                 }
             }
             if ('' != $class) {
-                var_dump($class);
+                //var_dump($class);
                 $logger = new $class();
                 $level = '';
                 $levelNode = $loggerNode->getElementsByTagName('level');
@@ -42,13 +42,23 @@ class LoggerManager extends Singleton {
                         }
                     }
                     if ('' != $class) {
-                        $class .= 'LogWriter';
+                        if (!Util::endsWith($class, 'LogWriter')) {
+                            $class .= 'LogWriter';
+                        }
                         $writer = new $class($writerNode);
                         $logger->register($writer);
                     }
                 }
-                $this->loggers[] = $logger;
+                self::$loggers[] = $logger;
             }
         }
+    }
+
+    public static function getLoggers() {
+        return self::$loggers;
+    }
+
+    public static function getLogger() {
+        return self::$loggers[0];
     }
 }

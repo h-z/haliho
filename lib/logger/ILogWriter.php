@@ -5,5 +5,5 @@
  */
 
 interface ILogWriter {
-
+    function write($msg);
 }
