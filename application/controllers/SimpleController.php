@@ -5,6 +5,14 @@
  */
 
 class SimpleController extends XmlController {
+    private $logger; // = LoggerManager::getLogger();
+
+
+    public function __construct(DOMNode $node) {
+        parent::__construct($node);
+        $this->logger = LoggerManager::getLogger();
+    }
+
 
     public function simple() {
         $my_header = new Header('', Header::SCRIPT, 'alert(1);');
@@ -12,7 +20,8 @@ class SimpleController extends XmlController {
     }
 
     public function m(DOMNode $node) {
-
+        //$this->logger->info('eee');
+        Log::logit('heloka');
         $a = $node->ownerDocument->createDocumentFragment();
         $a->appendXML('<foobar><bar/><foo/></foobar>');
         $r = $this->db->query("select * from atable")->fetchAllAssoc();
