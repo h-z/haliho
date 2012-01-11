@@ -21,7 +21,7 @@ class Logger implements ILogger {
 
     private function getLevel($l) {
         if (is_string($l)) {
-            $l = array_search($l, $this->levels); 
+            $l = array_search(strtoupper($l), $this->levels); 
         }
         if (is_numeric($l)) {
             if (($l < -1) && ($l >= count($this->levels))) {
@@ -31,10 +31,11 @@ class Logger implements ILogger {
         return $this->defaultLevel;
     }
 
-    private function write($msg = '') {
+    private function write($msg = '', $level = '') {
+        $level = $this->levels[$this->getLevel($level)];
         if (!empty($this->writers)) {
             foreach ($this->writers as $writer) {
-                $writer->write($msg);
+                $writer->write($msg, $level);
             }
         }
     }
@@ -48,7 +49,7 @@ class Logger implements ILogger {
             $level = $this->defaultLevel;
         }
         if ($this->level <= $this->getLevel($level)) {
-            $this->write($msg);
+            $this->write($msg, $level);
         }
     }
 
@@ -64,7 +65,6 @@ class Logger implements ILogger {
         $this->log($msg, 'DEBUG');
     }
                 
-
     public function error($msg) {
         $this->log($msg, 'ERROR');
     }
