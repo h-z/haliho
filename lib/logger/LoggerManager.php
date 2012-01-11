@@ -35,12 +35,14 @@ class LoggerManager extends Singleton {
                 $writerNodes = $loggerNode->getElementsByTagName('writer');
                 for($j=0; $j < $writerNodes->length; $j++) {
                     $writerNode = $writerNodes->item($j);
-                    $class = '';
+                    $class = Util::attr($writerNode, 'class');
+                    /*
                     foreach ( $writerNode->attributes as $name => $value ) {
                         if ('class' == $name) {
                             $class = $value->nodeValue;
                         }
                     }
+                     */
                     if ('' != $class) {
                         if (!Util::endsWith($class, 'LogWriter')) {
                             $class .= 'LogWriter';

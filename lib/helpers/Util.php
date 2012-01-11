@@ -14,4 +14,14 @@ class Util {
         }
         return false;
     }
+
+    public static function attr(DOMNode $node, $attr = '') {
+        foreach ( $node->attributes as $name => $value ) {
+            if ($attr == $name) {
+                return $value->nodeValue;
+            }
+        }
+        return null;
+
+    }
 }
