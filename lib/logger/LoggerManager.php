@@ -16,12 +16,7 @@ class LoggerManager extends Singleton {
         $loggerNodes = $this->xml->getElementsByTagName('logger');
         for($i=0; $i < $loggerNodes->length; $i++) {
             $loggerNode = $loggerNodes->item($i);
-            $class = '';
-            foreach ( $loggerNode->attributes as $name => $value ) {
-                if ('class' == $name) {
-                    $class = $value->nodeValue;
-                }
-            }
+            $class = Util::attr($loggerNode, 'class');
             if ('' != $class) {
                 //var_dump($class);
                 $logger = new $class();
@@ -36,13 +31,6 @@ class LoggerManager extends Singleton {
                 for($j=0; $j < $writerNodes->length; $j++) {
                     $writerNode = $writerNodes->item($j);
                     $class = Util::attr($writerNode, 'class');
-                    /*
-                    foreach ( $writerNode->attributes as $name => $value ) {
-                        if ('class' == $name) {
-                            $class = $value->nodeValue;
-                        }
-                    }
-                     */
                     if ('' != $class) {
                         if (!Util::endsWith($class, 'LogWriter')) {
                             $class .= 'LogWriter';
