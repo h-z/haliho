@@ -26,4 +26,8 @@
         <writer class="StdOut" />
         <writer class="FileLogWriter" file="var/log/kms.log"/>
     </logger>
+    <logger class="Logger">
+        <level>INFO</level>
+        <writer class="StdOut" />
+    </logger>
 </configuration>
