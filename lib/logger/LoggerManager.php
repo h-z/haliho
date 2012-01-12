@@ -13,12 +13,13 @@ class LoggerManager extends Singleton {
         parent::__construct();
         $config = Configuration::getInstance();
         $this->xml = $config->getXML();
-        $loggerNodes = $this->xml->getElementsByTagName('logger');
+        $xpath = new DOMXPath($this->xml);
+        $loggerNodes = $xpath->query('//logger');
         for($i=0; $i < $loggerNodes->length; $i++) {
             $loggerNode = $loggerNodes->item($i);
             $class = Util::attr($loggerNode, 'class');
             if ('' != $class) {
-                //var_dump($class);
+                var_dump($class);
                 $logger = new $class();
                 $level = '';
                 $levelNode = $loggerNode->getElementsByTagName('level');

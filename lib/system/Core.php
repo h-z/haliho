@@ -73,7 +73,7 @@ class Core {
             foreach (self::$handles as $nodeName => $handle) {
                 //$handle = array($handle, 'handle');
                 $tags = $xml->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
-               if (!empty($tags)) {
+                if (!empty($tags)) {
                     foreach ($tags as $tag) {
                       /* @var $tag DOMNode */
                         if ($handle instanceof IHandler) {

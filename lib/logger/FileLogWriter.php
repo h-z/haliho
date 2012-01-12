@@ -11,7 +11,7 @@ class FileLogWriter implements ILogWriter {
         $config = Configuration::getInstance();
 
         $this->file = $config->rootpath . Util::attr($node, 'file');
-        touch($this->file);
+//        touch($this->file);
    }
 
     public function write($msg = '', $level = '') {
