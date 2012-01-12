@@ -11,8 +11,8 @@ class Response extends Singleton {
     private $headers;
     private $cookies;
     
-    protected function __construct() {
-        parent::__construct();
+    protected function __construct($opts = array()) {
+        parent::__construct($opts);
     }
 
     function head() {
