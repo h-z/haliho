@@ -20,12 +20,6 @@ class MySQL extends Database {
         return @mysql_close($this->connnection);
     }
 
-    public function esc($str) {
-        $str =  str_replace("'", "''", $str);
-        $str =  str_replace("\''", "\'", $str);
-        return $str;
-    }
-
     public function query($query = '', $values = array()) {
         $q = new MySQLQuery($this, $query, $values);
         $this->lastquery = $q;
@@ -43,5 +37,4 @@ class MySQL extends Database {
     public function affectedRows() {
         return @mysql_affected_rows($this->connnection);
     }
-
 }

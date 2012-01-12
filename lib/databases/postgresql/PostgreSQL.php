@@ -18,12 +18,6 @@ class PostgreSQL extends Database {
         return @pg_close($this->connnection);
     }
 
-    public function esc($str) {
-        $str =  str_replace("'", "''", $str);
-        $str =  str_replace("\''", "\'", $str);
-        return $str;
-    }
-
     public function query($query = '', $values = array()) {
         $q = new PostgreSQLQuery($this, $query, $values);
         $this->lastquery = $q;
@@ -41,5 +35,4 @@ class PostgreSQL extends Database {
     public function affectedRows() {
         return @pg_affected_rows($this->connnection);
     }
-
 }

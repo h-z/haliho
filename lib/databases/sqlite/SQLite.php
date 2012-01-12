@@ -15,13 +15,6 @@ class SQLite extends Database {
         return @sqlite_close($this->connnection);
     }
 
-
-    public function esc($str) {
-        $str =  str_replace("'", "''", $str);
-        $str =  str_replace("\''", "\'", $str);
-        return $str;
-    }
-
     public function query($query = '', $values = array()) {
         $q = new SQLiteQuery($this, $query, $values);
         $this->lastquery = $q;

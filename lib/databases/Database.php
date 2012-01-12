@@ -29,11 +29,17 @@ abstract class Database implements IDatabase {
     }
 
     public function config($options = array()) {
-      if (is_array($options))	{
-  			foreach ($options as $key => $val) {
-  				$this->$key = $val;
-  			}
-  		}
+        if (is_array($options))	{
+            foreach ($options as $key => $val) {
+                $this->$key = $val;
+            }
+        }
+    }
+
+    public function esc($str) {
+        $str =  str_replace("'", "''", $str);
+        $str =  str_replace("\''", "\'", $str);
+        return $str;
     }
 
     public function lastQuery() {
@@ -45,7 +51,7 @@ abstract class Database implements IDatabase {
     }
 
     public function getConnection() {
-      return $this->connnection;
+        return $this->connnection;
     }
 
     /**
@@ -82,5 +88,4 @@ abstract class Database implements IDatabase {
         }
         return $result;
     }
-
 }
