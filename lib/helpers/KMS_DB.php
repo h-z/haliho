@@ -9,21 +9,21 @@ class KMS_DB {
     private $log;
     private $tables = array(
         'menu'=>'mnu',
-        'cikk'=>'ckk',
+        'article'=>'art',
         'site'=>'ste',
-        'ckk2mnu'=>'c2m',
+        'art2mnu'=>'a2m',
         'lang'=>'lng',
-        'nyelvielem'=>'nye',
-        'termek'=>'trm',
-        'termekcsoport'=>'tcs',
-        'hirleveltag'=>'hlt',
-        'hirlevel'=>'hlv',
+        'langelem'=>'lge',
+        'product'=>'prd',
+        'productgroup'=>'prg',
+        'newslettermember'=>'nlm',
+        'newsletter'=>'nwl',
         'user'=>'usr',
         'config'=>'cnf',
         'link'=>'lnk',
-        'tag'=>'tag',
-        'cimcsoport'=>'ccs',
-        'tag2ccs'=>'t2c',
+        'member'=>'member',
+        'addressgroup'=>'agp',
+        'mmb2agp'=>'m2a',
         'history'=>'hst'
     );
 
