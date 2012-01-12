@@ -10,6 +10,10 @@ class Response extends Singleton {
     private $body;
     private $headers;
     private $cookies;
+    
+    protected function __construct() {
+        parent::__construct();
+    }
 
     function head() {
 
