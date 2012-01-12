@@ -141,7 +141,7 @@ if (!function_exists('get_called_class')) {
     preg_match('/([a-zA-Z0-9\_]+)::'.$bt[1]['function'].'/', $lines[$bt[1]['line']-1], $matches); 
 
     if(empty($matches[1])) { 
-      $pp= serialize( $bt[1]["object"]); 
+      $pp= serialize( $bt[1]['object']);
       $nx=strpos($pp,'"')+1; 
       $nx=substr($pp,$nx,strpos($pp,'"')); 
       if (!empty($nx)) { 

@@ -8,7 +8,7 @@ class Util {
     public static function endsWith($string, $ending) {
         $tmp = explode($ending, $string);
         if (count($tmp) == 2) {
-            if ("" == $tmp[1]) {
+            if ('' == $tmp[1]) {
                 return $tmp[0];
             }
         }
