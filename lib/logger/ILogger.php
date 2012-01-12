@@ -10,7 +10,7 @@ interface ILogger {
 
     function register(ILogWriter $writer);
 
-    function log($msg, $level);
+    function log($msg='', $level='');
 
     function info($msg);
 

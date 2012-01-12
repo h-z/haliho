@@ -44,7 +44,7 @@ class Logger implements ILogger {
         $this->writers[] = $writer;
     }
 
-    public function log($msg, $level='') {
+    public function log($msg='', $level='') {
         if ('' == $level) {
             $level = $this->defaultLevel;
         }
