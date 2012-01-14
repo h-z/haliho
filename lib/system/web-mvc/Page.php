@@ -36,6 +36,31 @@ class Page implements IHandler {
         /* @var $controller XmlController */
         $controller = new $class($node);
         if (method_exists($controller, $method)) {
+          /* @var $result IView*/
+          $result = $controller->$method($node);
+          foreach ($controller->getHeaders() as $header) {
+            $this->head->add($header);
+          }
+          return $result;
+        }
+      }
+    }
+    return new DOMNode();
+  }
+  
+ 
+  /**
+   * @param DOMNode $node
+   * @return DOMNode
+   */
+  public function oldhandle(DOMNode $node) {
+    $class = $this->getAttribute($node, 'class').'Controller';
+    $method = $this->getAttribute($node, 'method');
+    if (class_exists($class, true)) {
+      if (is_subclass_of($class, 'XmlController')) {
+        /* @var $controller XmlController */
+        $controller = new $class($node);
+        if (method_exists($controller, $method)) {
           /* @var $result DOMNode */
           $result = $controller->$method($node);
           foreach ($controller->getHeaders() as $header) {

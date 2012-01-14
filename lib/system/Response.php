@@ -13,6 +13,7 @@ class Response extends Singleton {
     
     protected function __construct($opts = array()) {
         parent::__construct($opts);
+        $this->head = new Head();
     }
 
     function head() {

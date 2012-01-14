@@ -9,7 +9,7 @@ class I18n implements IHandler {
   }
 
   public function handle(DOMNode $node) {
-
+    return $node;
   }
 
  

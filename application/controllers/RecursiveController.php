@@ -4,6 +4,6 @@
  * Date: 2011.12.11.
  */
  
-class RecursiveController extends XmlController {
+class RecursiveController extends WebController {
 
 }

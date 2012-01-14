@@ -4,7 +4,7 @@
  * Date: 2011.11.16.
  */
  
-class XmlController extends Controller {
+class WebController extends Controller {
 
   protected $xml;
   protected $attribs;
