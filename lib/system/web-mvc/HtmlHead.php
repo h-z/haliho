@@ -4,7 +4,7 @@
  * Date: 2011.11.21.
  */
  
-class Header {
+class HtmlHead {
   const SCRIPT = 'script';
   const STYLE = 'style';
   const META = 'meta';

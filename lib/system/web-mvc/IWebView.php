@@ -3,11 +3,11 @@
 
 interface IWebView extends IView {
 
-    function addHeader(IHeader $header);
+    function addHeader(Header $header);
 
     function getHeaders();
 
-    function addHead(IHeadElement $elem);
+    function addHead(HtmlHead $elem);
 
     function getHeadContent();
 }

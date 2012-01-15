@@ -3,52 +3,52 @@
  * User: hz
  * Date: 2011.11.21.
  */
- 
+
 class Head {
 
-  private $id;
-  private $headers;
-  
-  public function __construct($id = '') {
-    
-  }
+    private $id;
+    private $htmlheads;
 
-  public function add(Header $header) {
-    if (!$this->contains($header)) {
-      $this->addHeader($header);
+    public function __construct($id = '') {
+
     }
-  }
 
-  /**
-   * @param Header $header
-   * @return boolean
-   */
-  private function contains(Header $header) {
-    foreach($this->headers as $h) {
-      if ($h->hashCode() == $header->hashCode()) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private function addHeader(Header $header) {
-    if (count($header->getDependencies())) {
-      foreach($header->getDependencies() as $dependency) {
-        if ($dependency instanceof Header) {
-          $this->add($dependency);
+    public function add(HtmlHead $htmlhead) {
+        if (!$this->contains($htmlhead)) {
+            $this->addHtmlHead($htmlhead);
         }
-      }
     }
-    $headers[] = $header;
-  }
 
-  public function toString() {
-    $strHeaders = '';
-    foreach ($this->headers as $header) {
-      /* @var $header Header */
-      $strHeaders .= $header->toString();
+    /**
+     * @param HtmlHead $htmlhead
+     * @return boolean
+     */
+    private function contains(HtmlHead $htmlhead) {
+        foreach($this->headers as $h) {
+            if ($h->hashCode() == $htmlhead->hashCode()) {
+                return true;
+            }
+        }
+        return false;
     }
-    return $strHeaders;
-  }
+
+    private function addHtmlHead(HtmlHead $htmlhead) {
+        if (count($htmlhead->getDependencies())) {
+            foreach($htmlhead->getDependencies() as $dependency) {
+                if ($dependency instanceof HtmlHead) {
+                    $this->add($dependency);
+                }
+            }
+        }
+        $htmlheads[] = $htmlhead;
+    }
+
+    public function toString() {
+        $strHtmlHeads = '';
+        foreach ($this->headers as $htmlhead) {
+            /* @var $htmlhead HtmlHead */
+            $strHtmlHeads .= $htmlhead->toString();
+        }
+        return $strHtmlHeads;
+    }
 }

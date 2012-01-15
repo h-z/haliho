@@ -19,7 +19,7 @@ class LoggerManager extends Singleton {
             $loggerNode = $loggerNodes->item($i);
             $class = Util::attr($loggerNode, 'class');
             if ('' != $class) {
-                var_dump($class);
+ //               var_dump($class);
                 $logger = new $class();
                 $level = '';
                 $levelNode = $loggerNode->getElementsByTagName('level');

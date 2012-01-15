@@ -21,7 +21,7 @@ class SimpleController extends WebController {
 
     public function m(DOMNode $node) {
         //$this->logger->info('eee');
-        Log::logit('heloka');
+ //       Log::logit('heloka');
         $a = $node->ownerDocument->createDocumentFragment();
         $a->appendXML('<foobar><bar/><foo/></foobar>');
         $r = $this->db->query("select * from atable")->fetchAllAssoc();

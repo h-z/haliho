@@ -2,28 +2,38 @@
 
 class WebView implements IWebView {
 
-    public function addBody(DOMNode $node) {
+    private $headers;
+    private $body;
+    private $headElements;
 
+    public function __construct() {
+       $this->headers = array();
+       $this->body = new DOMNode();
+       $this->headElements = array();
+    }
+
+    public function addBody(DOMNode $node) {
+        $this->body = $node;
     }
 
     public function getBody() {
-
+        return $this->body;
     }
 
     public function addHeader(IHeader $header) {
-
+        $this->headers[] = $header;
     }
 
     public function getHeaders() {
-
+        return $this->headers;
     } 
 
     public function addHead(IHeadElement $elem) {
-
+        $this->headElements[] = $elem;
     }
 
     public function getHeadContent() {
-
+        return $this->headElements;
     }
 
 }
