@@ -43,7 +43,7 @@ class Page implements IHandler {
                 }
             }
         }
-        return new DOMNode();
+        return new DOMText('');
     }
 
     private function processResult($result) {
@@ -51,7 +51,10 @@ class Page implements IHandler {
         if (is_string($result)) {
             $node = new DOMText($result);
         }
-        if ($result instanceof DOMNODE) {
+        if (is_array($result)) {
+           $node = XmlHelper::fromMixed($result, new DOMDocument()); 
+        }
+        if ($result instanceof DOMNode) {
             $node = $result;
         }
         if ($result instanceof IWebView) {
@@ -63,9 +66,7 @@ class Page implements IHandler {
                 $this->addHead($head);
             }
         }
-
         return $node;
-
     }
 
 
@@ -77,31 +78,7 @@ class Page implements IHandler {
         $this->head->add($head);
     }
 
-    /**
-     * @param DOMNode $node
-     * @return DOMNode
-     */
-    public function oldhandle(DOMNode $node) {
-        $class = $this->getAttribute($node, 'class').'Controller';
-        $method = $this->getAttribute($node, 'method');
-        if (class_exists($class, true)) {
-            if (is_subclass_of($class, 'XmlController')) {
-                /* @var $controller XmlController */
-                $controller = new $class($node);
-                if (method_exists($controller, $method)) {
-                    /* @var $result DOMNode */
-                    $result = $controller->$method($node);
-                    foreach ($controller->getHeaders() as $header) {
-                        $this->head->add($header);
-                    }
-                    return $result;
-                }
-            }
-        }
-        return new DOMNode();
-    }
-
-    /**
+   /**
      * @param string $name
      * @param DOMNode $node
      * @return string

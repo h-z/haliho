@@ -34,4 +34,13 @@ class SimpleController extends WebController {
         }
         return $a;
     }
+
+    public function n(DOMNode $node) {
+ //       var_dump('only text');
+        return 'only text';
+    }
+
+    public function o(DOMNode $node) {
+        return '<rr></rr>';
+    }
 }

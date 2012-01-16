@@ -12,5 +12,4 @@ $core = new Core(array(
 
 print $core->page('html');
 
-
 ?>

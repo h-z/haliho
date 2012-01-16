@@ -36,7 +36,7 @@ class Core {
         $this->create();
         return $this->toString();
     }
-    
+
     private function loadXML($type = '') {
         $this->xmlContent = new DOMDocument();
         $this->xmlContent->load(self::$rootpath . 'public/test/page.xml');
@@ -72,12 +72,17 @@ class Core {
         if (!empty(self::$handles)) {
             foreach (self::$handles as $nodeName => $handle) {
                 //$handle = array($handle, 'handle');
-                $tags = $xml->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
-                if (!empty($tags)) {
-                    foreach ($tags as $tag) {
-                      /* @var $tag DOMNode */
-                        if ($handle instanceof IHandler) {
-                            $tag->parentNode->replaceChild(call_user_func(array($handle, 'handle'), $tag), $tag);
+                if ($handle instanceof IHandler) {
+                   $tags = $xml->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
+                    $nodes = array();
+                    if (!empty($tags)) {
+                        for ($i=0; $i<$tags->length; $i++) {
+                            $nodes[] = $tags->item($i);
+                        }
+                        foreach ($nodes as $orignode) {
+                            $d = call_user_func(array($handle, 'handle'), $orignode);
+                            $d = $xml->importNode($d, true);               
+                            $orignode->parentNode->replaceChild($d, $orignode);
                         }
                     }
                 }

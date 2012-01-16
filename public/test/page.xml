@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <doc xmlns:kms="http://hz.muszaki.info/ns/1.0" >
-  <kms:controller class="Simple" method="m" folder="1" articles="yes" >
-    <title><![CDATA[cím]]></title>
-    <text><![CDATA[szöveg]]></text>
-  </kms:controller>
+    <kms:controller class="Simple" method="m" folder="1" articles="yes" >
+        <title><![CDATA[cím]]></title>
+        <text><![CDATA[szöveg]]></text>
+    </kms:controller>
+    <kms:controller class="Simple" method="n" folder="1" articles="yes" >
+        <title><![CDATA[cím]]></title>
+        <text><![CDATA[szöveg]]></text>
+    </kms:controller>
+    <kms:controller class="Simple" method="o" folder="1" articles="yes" >
+        <title><![CDATA[cím]]></title>
+        <text><![CDATA[szöveg]]></text>
+    </kms:controller>
+    <kms:controller class="Simple" method="p" folder="1" articles="yes" >
+        <title><![CDATA[cím]]></title>
+        <text><![CDATA[szöveg]]></text>
+    </kms:controller>
+
+
 </doc> 
