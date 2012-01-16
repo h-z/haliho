@@ -8,7 +8,7 @@ class WebView implements IWebView {
 
     public function __construct() {
        $this->headers = array();
-       $this->body = new DOMNode();
+       $this->body = new DOMText('');
        $this->headElements = array();
     }
 
@@ -20,7 +20,7 @@ class WebView implements IWebView {
         return $this->body;
     }
 
-    public function addHeader(IHeader $header) {
+    public function addHeader(Header $header) {
         $this->headers[] = $header;
     }
 
@@ -28,7 +28,7 @@ class WebView implements IWebView {
         return $this->headers;
     } 
 
-    public function addHead(IHeadElement $elem) {
+    public function addHead(HtmlHead $elem) {
         $this->headElements[] = $elem;
     }
 

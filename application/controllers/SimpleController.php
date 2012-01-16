@@ -41,6 +41,9 @@ class SimpleController extends WebController {
     }
 
     public function o(DOMNode $node) {
-        return '<rr></rr>';
+        $v = new WebView();
+
+
+        return $v;
     }
 }

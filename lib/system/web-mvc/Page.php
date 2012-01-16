@@ -62,7 +62,7 @@ class Page implements IHandler {
             foreach ($result->getHeaders() as $header) {
                 $this->addHeader($header);
             }
-            foreach ($result->getHeadElements() as $head) {
+            foreach ($result->getHeadContent() as $head) {
                 $this->addHead($head);
             }
         }
