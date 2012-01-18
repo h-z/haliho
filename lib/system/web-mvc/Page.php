@@ -47,7 +47,7 @@ class Page implements IHandler {
     }
 
     private function processResult($result) {
-        $node = new DOMNode();
+        $node = new DOMText('');
         if (is_string($result)) {
             $node = new DOMText($result);
         }
