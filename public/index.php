@@ -6,13 +6,7 @@
 
 
 require '../init.php';
-/*
-require '../lib/system/Core.php';
 
-$core = new Core(array(
-  'rootpath' => '/home/hz/projects/php/haliho/')
-);
-*/
 print $core->page('html');
 
 ?>
