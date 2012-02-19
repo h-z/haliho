@@ -1,5 +1,5 @@
 <?php 
-require '../init.php';
+require_once '../init.php';
 
 class SingletonImpl extends Singleton {
     public function a() {
