@@ -9,7 +9,7 @@ session_start();
 
 class Core {
 
-    private $maxLoop = 10;
+    private $maxLoop = 5;
     private $data = array();
     private $xmlContent;
 
@@ -53,15 +53,16 @@ class Core {
     private function create() {
         $loop = 0;
         $xml = $this->xmlContent;
-        if ($loop < $this->maxLoop) {
+        while ($loop < $this->maxLoop) {
             $xml0 = $this->parseXml($xml);
             //TODO equals
-            if ($xml0 == $xml) {
-                $this->xmlContent = $xml0;
-                return;
+            if ($xml0->saveXML() == $xml->saveXML()) {
+                break;
             }
             $loop++;
-        }
+        } 
+        $this->xmlContent = $xml0;
+
     }
 
     /**
@@ -69,26 +70,33 @@ class Core {
      * @return DOMDocument
      */
     private function parseXml(DOMDocument $xml) {
+        $xml2 = new domdocument;
+        $xml2->loadxml($xml->savexml());
+//        var_dump("d:\n".$xml2->savexml());
+        //var_dump($xml->saveXML());
         if (!empty(self::$handles)) {
             foreach (self::$handles as $nodeName => $handle) {
                 //$handle = array($handle, 'handle');
+  //              var_dump($nodeName);
                 if ($handle instanceof IHandler) {
-                   $tags = $xml->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
+                    $tags = $xml2->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
                     $nodes = array();
                     if (!empty($tags)) {
                         for ($i=0; $i<$tags->length; $i++) {
                             $nodes[] = $tags->item($i);
                         }
+
                         foreach ($nodes as $orignode) {
                             $d = call_user_func(array($handle, 'handle'), $orignode);
-                            $d = $xml->importNode($d, true);               
+                            $d = $xml2->importNode($d, true);               
                             $orignode->parentNode->replaceChild($d, $orignode);
                         }
                     }
                 }
             }
         }
-        return $xml;
+        //  var_dump($xml->saveXML());     
+        return $xml2;
     }
 
     private static function getdirs($dir) {
