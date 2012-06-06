@@ -72,12 +72,8 @@ class Core {
     private function parseXml(DOMDocument $xml) {
         $xml2 = new domdocument;
         $xml2->loadxml($xml->savexml());
-//        var_dump("d:\n".$xml2->savexml());
-        //var_dump($xml->saveXML());
         if (!empty(self::$handles)) {
             foreach (self::$handles as $nodeName => $handle) {
-                //$handle = array($handle, 'handle');
-  //              var_dump($nodeName);
                 if ($handle instanceof IHandler) {
                     $tags = $xml2->getElementsByTagNameNS('http://hz.muszaki.info/ns/1.0', $nodeName);
                     $nodes = array();
@@ -95,7 +91,6 @@ class Core {
                 }
             }
         }
-        //  var_dump($xml->saveXML());     
         return $xml2;
     }
 
